@@ -1,8 +1,8 @@
 import { Component, computed, input } from '@angular/core';
 
 import { MatCardModule } from '@angular/material/card';
-import { CardType } from '../../types/card-type';
-import { CssClass } from '../../types/css-class';
+import { CardType } from '../../../../../../shared/types/card-type';
+import { CssClass } from '../../../../../../shared/types/css-class';
 
 @Component({
   selector: 'app-balance-card',
@@ -21,6 +21,9 @@ export class BalanceCard {
     }
     if (this.type() === 'outcome') {
       return 'outcome';
+    }
+    if (this.value() === 0) {
+      return 'zero';
     }
     return this.value() > 0 ? 'income' : 'outcome';
   });
