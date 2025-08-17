@@ -1,0 +1,28 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "title": "Aluguel",
+      "value": 1200,
+      "type": "outcome"
+    },
+    {
+      "id": 2,
+      "title": "Vale Alimentação",
+      "value": 350,
+      "type": "outcome"
+    },
+    {
+      "id": 3,
+      "title": "Salário",
+      "value": 4500,
+      "type": "income"
+    },
+    {
+      "id": 4,
+      "title": "Freelance",
+      "value": 800,
+      "type": "income"
+    }
+  ]
+}
