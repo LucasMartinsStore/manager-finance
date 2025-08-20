@@ -1,10 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { BalanceCard } from './components/balance/components/balance-card/balance-card';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Balance } from './components/balance/balance';
 import { TransactionItem } from './components/transaction-item/transaction-item';
 import { Transaction } from '../../shared/transaction/interface/transaction';
-import { TransactionType } from '../../shared/transaction/enums/transaction-type';
 import { NoTransactions } from './components/no-transactions/no-transactions';
+import { TransactionsService } from '../../shared/transaction/services/transactions';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +11,19 @@ import { NoTransactions } from './components/no-transactions/no-transactions';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
-  transactions = signal<Transaction[]>([
-    // { title: 'Transação 1', value: 200, type: TransactionType.OUTCOME },
-    // { title: 'Transação 2', value: 150, type: TransactionType.OUTCOME },
-    // { title: 'Transação 3', value: 200, type: TransactionType.INCOME },
-    // { title: 'Transação 4', value: 150, type: TransactionType.INCOME },
-  ]);
+export class Home implements OnInit {
+  transactions = signal<Transaction[]>([]);
+
+  private _transactionService = inject(TransactionsService);
+
+  ngOnInit(): void {
+    this._getTransactions();
+  }
+
+  private _getTransactions() {
+    this._transactionService.getAll().subscribe({
+      next: (transactions) => this.transactions.set(transactions),
+      error: (error) => console.error('Error fetching transactions:', error),
+    });
+  }
 }
