@@ -23,6 +23,54 @@
       "title": "Freelance",
       "value": 800,
       "type": "income"
+    },
+    {
+      "title": "Salário",
+      "type": "income",
+      "value": 2500,
+      "id": 5
+    },
+    {
+      "title": "Supermercado",
+      "type": "outcome",
+      "value": 500,
+      "id": 6
+    },
+    {
+      "title": "Teste",
+      "type": "income",
+      "value": 2,
+      "id": 7
+    },
+    {
+      "title": "teste",
+      "type": "outcome",
+      "value": 2,
+      "id": 8
+    },
+    {
+      "title": "teste",
+      "type": "income",
+      "value": 1,
+      "id": 9
+    },
+    {
+      "title": "teste",
+      "type": "income",
+      "value": 1,
+      "id": 10
+    },
+    {
+      "title": "teste",
+      "type": "income",
+      "value": 1,
+      "id": 11
+    },
+    {
+      "title": "ganho",
+      "type": "income",
+      "value": 200,
+      "id": 12
     }
   ]
 }
