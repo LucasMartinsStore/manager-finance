@@ -5,6 +5,8 @@
   </div>
   <div class="card-actions">
     <button matButton="filled">Remover</button>
-    <button matButton="outlined">Editar</button>
+    <button matButton="outlined" (click)="edit.emit(transaction())">
+      Editar
+    </button>
   </div>
 </mat-card>

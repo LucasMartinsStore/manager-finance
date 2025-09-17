@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {
@@ -13,7 +13,7 @@ import { TransactionType } from '../../../../shared/transaction/enums/transactio
 import { NgxMaskDirective } from 'ngx-mask';
 import { TransactionsService } from '../../../../shared/transaction/services/transactions.service';
 import { TransactionPayload } from '../../../../shared/transaction/interface/transaction';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FeedbackService } from '../../../../shared/services/feedback/feedback.service';
 
@@ -27,16 +27,20 @@ import { FeedbackService } from '../../../../shared/services/feedback/feedback.s
     MatButtonToggleModule,
     NgxMaskDirective,
   ],
-  templateUrl: './create.component.html',
-  styleUrl: './create.component.scss',
+  templateUrl: './create-or-edit.component.html',
+  styleUrl: './create-or-edit.component.scss',
 })
-export class CreateComponent {
+export class CreateOrEditComponent implements OnInit {
   readonly transactionType = TransactionType;
 
   private _transactionService = inject(TransactionsService);
   private _router = inject(Router);
-  private _snackBar = inject(MatSnackBar);
   private _feedbackService = inject(FeedbackService);
+  private _activatedRoute = inject(ActivatedRoute);
+
+  ngOnInit(): void {
+    console.log(this._activatedRoute.snapshot.data);
+  }
 
   form = new FormGroup({
     type: new FormControl('', {

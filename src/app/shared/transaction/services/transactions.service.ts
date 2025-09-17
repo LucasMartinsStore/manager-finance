@@ -13,6 +13,10 @@ export class TransactionsService {
     return this._httpClient.get<Transaction[]>(this.ENPOINT);
   }
 
+  getById(id: string) {
+    return this._httpClient.get<Transaction>(`${this.ENPOINT}/${id}`);
+  }
+
   post(post: TransactionPayload) {
     return this._httpClient.post<Transaction>(this.ENPOINT, post);
   }
